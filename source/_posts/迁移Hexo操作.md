@@ -22,7 +22,7 @@
     - 然后这样一下`npm install` （可能不需要）
 
 3. 开始正常写文章
-    - 重复[Hexo配合GitHub搭建个人博客.md](Hexo配合GitHub搭建个人博客.md)里面的5～6步骤就可以了。
+    - 重复[Hexo配合GitHub搭建个人博客](https://bean-jun.github.io/2020/05/12/Hexo配合GitHub搭建个人博客/)里面的5～6步骤就可以了。
 
 4. 最后一步
     - 写完之后，得同步到dev分支一下奥
