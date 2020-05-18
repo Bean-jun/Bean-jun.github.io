@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>失声痛哭之常用Linux命令 | 小豆子的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事情的经过是这样的，为了写学校的下发的模板文件不会乱码，我在Linux下创建了一个Windows7的虚拟机，使用共享文档的方式在win系统下编辑我放在Ubuntu中的文件（ps：还好是这么做的，不然小命没了），可是我昨天再开机的时候，emmm，我的天，我的Ubuntu20.04进不去图形化界面了，emmm，那我虚拟机啥的都没法子用了啊，我的文件有一天的还没同步啊。哎，喂，这么可以这样…….其实我在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="失声痛哭之常用Linux命令">
+<meta property="og:url" content="http://yoursite.com/2020/05/18/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="小豆子的Blog">
+<meta property="og:description" content="事情的经过是这样的，为了写学校的下发的模板文件不会乱码，我在Linux下创建了一个Windows7的虚拟机，使用共享文档的方式在win系统下编辑我放在Ubuntu中的文件（ps：还好是这么做的，不然小命没了），可是我昨天再开机的时候，emmm，我的天，我的Ubuntu20.04进不去图形化界面了，emmm，那我虚拟机啥的都没法子用了啊，我的文件有一天的还没同步啊。哎，喂，这么可以这样…….其实我在">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-18T00:22:39.891Z">
+<meta property="article:modified_time" content="2020-05-18T00:22:39.891Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小豆子的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小豆子的Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-失声痛哭之常用Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/18/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2020-05-18T00:22:39.891Z" itemprop="datePublished">2020-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      失声痛哭之常用Linux命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>事情的经过是这样的，为了写学校的下发的模板文件不会乱码，我在Linux下创建了一个Windows7的虚拟机，使用共享文档的方式在win系统下编辑我放在Ubuntu中的文件（ps：还好是这么做的，不然小命没了），可是我昨天再开机的时候，emmm，我的天，我的Ubuntu20.04进不去图形化界面了，emmm，那我虚拟机啥的都没法子用了啊，我的文件有一天的还没同步啊。哎，喂，这么可以这样…….<br>其实我在使用Ubuntu20.04的时候发现这个系统的图形化界面的操作是多么的不友好，虽然图形化界面相对18.04好看了太多，但是bug也太多了吧…..，软件开几个后就会出现死机的现象，按什么都没有反应，包括使用Ctrl+Alt+F3来使用命令行模式都不可以，只能重启电脑…我….还有这输入法，我用的难受，终于再使用大半个月后系统的图形化界面崩了，进不去了….（ps:还好终端的模式可以进去….）<br>下面就来讲解我怎么把数据备份出来的，以便大家参考   </p>
+<ol>
+<li>确认需要备份的文件及大小（这里有一个坑，后面会有提）<ul>
+<li>在/home目录下，使用<code>df  -sh [用户名]</code>就可以查看这个用户目录下占用多大空间，我是52G…..我U盘才8G，这…</li>
+<li>可能是我没有安装对应的支持，导致我在终端模式下，/home/bean/下的文件夹，中文都是乱码…..，我真的是无语，都不知道这么移动了，毕竟我U盘容量小了，不然就可以直接<code>sudo cp -rf * /U盘目录</code>，哎…</li>
+</ul>
+</li>
+<li>准备一个大U盘，用来备份（越大越好）</li>
+<li>挂载U盘，移动文件（还没结束哦！）<ul>
+<li>使用<code>fdisk -l</code>查看U盘的盘符，使用<code>sudo mount /dev/u盘盘符  /mnt</code>就可以使用挂载命令将U盘挂载到<code>/mnt</code>目录下，直接使用<code>sudo cp -rf * /mnt</code>就可以了哦，小容量的自己想办法删些文件,没有乱码的可以在终端中删除，比如在Ubuntu的安装盘中使用试用安装模式来删除一些文件（我就是这样做的…）</li>
+<li>卸载U盘<code>sudo umount /mnt</code>你以为这样就好了么，呵呵呵，后面还有呢</li>
+</ul>
+</li>
+</ol>
+<p>当我安装好18.04后（图形化界面确实比20.04强多了），我打开一看….都是<code>x</code>，没权限打开….，使用<code>ls -al或者ll</code>一看，用户为root，用户组为root….我们这个使用就要更改用户和用户组，命令分别是<code>chown</code>和<code>chgrp</code>,不过可以使用<code>chown</code>一个命令解决倒是，这里我将用户改为<code>bean</code>用户组改为<code>bean</code>，使用命令为<code>sudo chown -R bean:bean *</code>，这里的R表示同时改动当前文件夹下的子文件夹和文件，不然就得一个文件夹一个一个的改…..<br>我真的怕了，哎，哦对了，这篇文章就是使用我讲解hexo博客备份的方式来重新配置环境后再发出来的哦。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/18/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/" data-id="ckabqwtk50001gukqg8ak76uy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/17/Hexo%E9%85%8D%E5%90%88GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo配合GitHub搭建个人博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/18/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/">失声痛哭之常用Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/17/Hexo%E9%85%8D%E5%90%88GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo配合GitHub搭建个人博客</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/17/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/">迁移Hexo操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/17/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%B8%89%E8%AF%BE/">Java/学习Java第三课</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/17/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%B8%80%E8%AF%BE/">Java/学习Java第一课</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
