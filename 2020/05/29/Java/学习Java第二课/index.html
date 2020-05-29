@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java/学习Java第二课 | 小豆子的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、基本数据类型 整数类型 byte，short,int,long byte:-128~127 short:-32768~32767 int:-2147483648 ~ 2147483647 long: -9223372036854775808 ~ 9223372036854775807   浮点数类型 float,double float:3.4x10^38 double:1.79x10^308">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java&#x2F;学习Java第二课">
+<meta property="og:url" content="http://yoursite.com/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%BA%8C%E8%AF%BE/index.html">
+<meta property="og:site_name" content="小豆子的Blog">
+<meta property="og:description" content="一、基本数据类型 整数类型 byte，short,int,long byte:-128~127 short:-32768~32767 int:-2147483648 ~ 2147483647 long: -9223372036854775808 ~ 9223372036854775807   浮点数类型 float,double float:3.4x10^38 double:1.79x10^308">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-29T02:53:56.202Z">
+<meta property="article:modified_time" content="2020-05-29T02:53:56.202Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小豆子的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小豆子的Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java/学习Java第二课" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%BA%8C%E8%AF%BE/" class="article-date">
+  <time datetime="2020-05-29T02:53:56.202Z" itemprop="datePublished">2020-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java/学习Java第二课
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、基本数据类型"><a href="#一、基本数据类型" class="headerlink" title="一、基本数据类型"></a>一、基本数据类型</h2><ul>
+<li>整数类型 byte，short,int,long<ul>
+<li>byte:-128~127</li>
+<li>short:-32768~32767</li>
+<li>int:-2147483648 ~ 2147483647</li>
+<li>long: -9223372036854775808 ~ 9223372036854775807</li>
+</ul>
+</li>
+<li>浮点数类型 float,double<ul>
+<li>float:3.4x10^38</li>
+<li>double:1.79x10^308</li>
+</ul>
+</li>
+<li>字符类型 char<ul>
+<li>字符使用<code>&#39;&#39;</code>表示</li>
+<li>字符串使用<code>&quot;&quot;</code>表示，且需要<code>String</code>来表示</li>
+</ul>
+</li>
+<li>布尔类型 boolean</li>
+</ul>
+<h2 id="二、三元运算符"><a href="#二、三元运算符" class="headerlink" title="二、三元运算符"></a>二、三元运算符</h2><ul>
+<li><code>b?x:y</code><ul>
+<li>会首先计算<code>b</code>，如果<code>b</code>为true，则只计算<code>x</code>，否则，只计算<code>y</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="三、数组类型"><a href="#三、数组类型" class="headerlink" title="三、数组类型"></a>三、数组类型</h2><ul>
+<li>例如定义一个整型数组<ul>
+<li><code>int[] a = new int[3];</code> </li>
+<li>当然我们可以不用这样写，直接赋值，就不用写数组长度，上述代码非可以写成这样<code>int[] a = new int[]{11,22,33};</code>或者这样<code>int[] a = {11,22,33};</code></li>
+</ul>
+</li>
+<li>对于一个数组类型，我们可以使用<code>length</code>来获取数组的长度<ul>
+<li>a.length; //结果为3</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、程序的输入与输出"><a href="#四、程序的输入与输出" class="headerlink" title="四、程序的输入与输出"></a>四、程序的输入与输出</h2><ul>
+<li>输出（相对输入容易一点）<ul>
+<li><code>System.out.println(&quot;xxx&quot;);</code>这就是输出语句，当然在输出中我们还可以大做文章<ul>
+<li>这个时候语句可以写成<code>System.out.printf(&quot;xxx&quot;);</code>注意看<code>print</code>变了，后面怎么玩，其实和C语言是差不多相通的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输入<ul>
+<li>导入包<code>import java.util.Scanner;</code></li>
+<li>新建一个对象<code>Scanner scanner = new Scanner(System.in);</code></li>
+<li>读取输入<code>int a = scanner.nextInt();</code></li>
+<li>上述三步才完成了基本的输入，第三部中有很多可以自己定义的地方，比如数据类型</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、流程控制"><a href="#五、流程控制" class="headerlink" title="五、流程控制"></a>五、流程控制</h2><ul>
+<li><p>if else</p>
+<ul>
+<li>这个结构其实和Python极为相似，但是不同的是，这里的if后面的语句必须有括号括起来，否则会报错,并且Java的<code>else if</code>连用是分开的，在python中可以用<code>elif</code>来表示<ul>
+<li>eg 单个if使用  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a &#x3D; 8;</span><br><span class="line">if (a &gt;&#x3D; 5) &#123;</span><br><span class="line">    System.out.println(&quot;a&gt;5&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>eg if和else连用  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int a &#x3D; 8;</span><br><span class="line">if (a &gt;&#x3D; 15) &#123;</span><br><span class="line">    System.out.println(&quot;a&gt;&#x3D;15&quot;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    System.out.println(&quot;a&lt;15&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>eg if和else if连用  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int a &#x3D; 8;</span><br><span class="line">if (a &gt;&#x3D; 15) &#123;</span><br><span class="line">    System.out.println(&quot;a&gt;&#x3D;15&quot;);</span><br><span class="line">&#125;else if (a &gt;&#x3D; 10)&#123;</span><br><span class="line">    System.out.println(&quot;10&lt;&#x3D;a&lt;15&quot;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    System.out.println(&quot;a&lt;10&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>switch</p>
+<ul>
+<li>switch其实就是一个多重选择，在给定选项中选择对应数据插入程序，程序执行相应操作</li>
+<li>一般语法结构  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">switch (option):</span><br><span class="line">case option1:</span><br><span class="line">    xxx;</span><br><span class="line">    break;</span><br><span class="line">case option2:</span><br><span class="line">    xxx;</span><br><span class="line">    break;</span><br><span class="line">...</span><br><span class="line">default:</span><br><span class="line">    xxx;</span><br><span class="line">    break;</span><br></pre></td></tr></table></figure></li>
+<li>注意上述表示，<code>case</code>会枚举<code>option</code>中的每一种操作，当然<code>default</code>表示，若枚举的都没有，直接执行对应结果就好,关于<code>break</code>我们在后面讲解<ul>
+<li>eg  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class LearnSwitch &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner num &#x3D; new Scanner(System.in);</span><br><span class="line">        int n &#x3D; num.nextInt();</span><br><span class="line">        num.close();</span><br><span class="line">        switch (n) &#123;</span><br><span class="line">        case 1:</span><br><span class="line">            System.out.println(&quot;1&quot;);</span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            System.out.println(&quot;2&quot;);</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            System.out.println(&quot;no in switch!&quot;);</span><br><span class="line">            break;			</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  该代码，若是输入1或者2就会被<code>case</code>捕捉到，执行相应语句，若没有捕捉到，则执行<code>default</code>语句。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>while</p>
+<ul>
+<li>while循环语句</li>
+<li>一般语法结构  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (条件)&#123;</span><br><span class="line">    需要执行的语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>比如我们执行1+2+3+…+100  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Sum&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int n &#x3D; 1;</span><br><span class="line">        int sum &#x3D; 0;</span><br><span class="line">        while (n&lt;&#x3D;100)&#123;</span><br><span class="line">            sum +&#x3D; n;</span><br><span class="line">            n++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>do while</p>
+<ul>
+<li>和while相似，while是先判断再做，do while是先做再判断</li>
+<li>一般语法结构  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">    需要执行的语句</span><br><span class="line">&#125;while (条件);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>for</p>
+<ul>
+<li>emmmm,这个就写个代码吧，和c语言基本一致  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Sum &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    for (int i&#x3D;1; i&lt;&#x3D;100; i++) &#123;</span><br><span class="line">        sum &#x3D; sum + i;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>break &amp;&amp; continue</p>
+<ul>
+<li>他们两兄弟在循环中用的最多，也是最频繁</li>
+<li>break会跳出当前循环</li>
+<li>continue则是提前结束本次循环</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%BA%8C%E8%AF%BE/" data-id="ckarmws2r0005q1bickffgxcp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%B8%89%E8%AF%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java/学习Java第三课
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/29/Hexo%E9%85%8D%E5%90%88GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo配合GitHub搭建个人博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/">迁移Hexo操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/">失声痛哭之常用Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%B8%89%E8%AF%BE/">Java/学习Java第三课</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%BA%8C%E8%AF%BE/">Java/学习Java第二课</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/Hexo%E9%85%8D%E5%90%88GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo配合GitHub搭建个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>迁移Hexo操作 | 小豆子的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有时候我们可能要在另一台电脑上使用我们的博客平台，这时，需要我们重新再操作一个远程仓库，然后在创建文章吗？？？很明显，这是不现实的，我们有什么办法解决这个问题呢？，有的，我们可以做一个远程仓库备份就可以了，这样我们下次使用只要配置好环境，直接clone下来就可以使用了，来，先看步骤！  在GitHub上创建远程分支（都是点点点的操作）  配置环境  Git Node.js Hexo sudo np">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迁移Hexo操作">
+<meta property="og:url" content="http://yoursite.com/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="小豆子的Blog">
+<meta property="og:description" content="有时候我们可能要在另一台电脑上使用我们的博客平台，这时，需要我们重新再操作一个远程仓库，然后在创建文章吗？？？很明显，这是不现实的，我们有什么办法解决这个问题呢？，有的，我们可以做一个远程仓库备份就可以了，这样我们下次使用只要配置好环境，直接clone下来就可以使用了，来，先看步骤！  在GitHub上创建远程分支（都是点点点的操作）  配置环境  Git Node.js Hexo sudo np">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-29T03:15:59.856Z">
+<meta property="article:modified_time" content="2020-05-29T03:15:59.856Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小豆子的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小豆子的Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-迁移Hexo操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-05-29T03:15:59.856Z" itemprop="datePublished">2020-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      迁移Hexo操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有时候我们可能要在另一台电脑上使用我们的博客平台，这时，需要我们重新再操作一个远程仓库，然后在创建文章吗？？？<br>很明显，这是不现实的，我们有什么办法解决这个问题呢？，有的，我们可以做一个远程仓库备份就可以了，这样我们下次使用只要配置好环境，直接clone下来就可以使用了，来，先看步骤！</p>
+<ol>
+<li><p>在GitHub上创建远程分支（都是点点点的操作）</p>
+</li>
+<li><p>配置环境</p>
+<ul>
+<li>Git</li>
+<li>Node.js</li>
+<li>Hexo<ul>
+<li><code>sudo npm install hexo-cli -g</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>clone</code>仓库（这里有好几步）</p>
+<ul>
+<li>克隆下来后，再创建一下分支<code>git checkout -b dev</code>,</li>
+<li>删除掉<code>.git</code>以外的文件，务必要这样做。注意：不是删除掉<code>.git</code>。</li>
+<li>然后将<code>Blog</code>文件夹下的所有文件移到这个目录，并使用<code>git</code>操作一下，操作如下：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#39;&#39;</span><br><span class="line">git push --set-upstream origin dev</span><br></pre></td></tr></table></figure></li>
+<li>完成到这里就结束了这些部分的操作</li>
+<li>然后这样一下<code>npm install</code> （可能不需要）</li>
+</ul>
+</li>
+<li><p>开始正常写文章</p>
+<ul>
+<li>重复Hexo配合GitHub搭建个人博客里面的5～6步骤就可以了。</li>
+</ul>
+</li>
+<li><p>最后一步</p>
+<ul>
+<li>写完之后，得同步到dev分支一下奥  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#39;&#39;</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/" data-id="ckarmws230001q1bia3uiejvd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/29/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">失声痛哭之常用Linux命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/">迁移Hexo操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/">失声痛哭之常用Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%B8%89%E8%AF%BE/">Java/学习Java第三课</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%BA%8C%E8%AF%BE/">Java/学习Java第二课</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/Hexo%E9%85%8D%E5%90%88GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo配合GitHub搭建个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
