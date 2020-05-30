@@ -67,7 +67,7 @@
     <article id="post-使用高德地图API创建一个属于自己的天气闹钟" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/30/%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BEAPI%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%A9%E6%B0%94%E9%97%B9%E9%92%9F/" class="article-date">
-  <time datetime="2020-05-30T14:42:55.024Z" itemprop="datePublished">2020-05-30</time>
+  <time datetime="2020-05-30T14:44:31.722Z" itemprop="datePublished">2020-05-30</time>
 </a>
     
   </div>
@@ -88,18 +88,17 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本着是使用树莓派做一个个人天气预报的，通过百度也看到很多大神使用各种各样的方法来实现，本着简单、免费的想法，我去弄了个高德的开发者账号（ps:其实就是懒，哈哈哈哈哈），这个账号认证后每天有    300000次，其实也够我们自己去使用了，哈哈哈哈！后面关于文本合成语音的部分，打算接入阿里、讯飞的api的，emmm有点贵，算了，使用第三方库讲究着用吧（ps:声音确实是好僵硬）！</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
-<li><p>在这里，我们需要提前安装好requests库、pyttsx3库。<br> <code>pip3 install requests</code><br> <code>pip3 install pyttsx3</code></p>
-</li>
-<li><p>进入高德开发者平台，注册账号，按照流程创建一个应用（是web服务的api），此时就可以获取到一个<code>key</code>值，这个值在后面会用到，记得保存一下。   </p>
-</li>
-<li><p>打开高德的api使用文档，好了，开始撸代码…</p>
-<h2 id="开始撸代码"><a href="#开始撸代码" class="headerlink" title="开始撸代码"></a>开始撸代码</h2><p>这里我们有三个任务   </p>
-<blockquote>
-<p>获取当前地理位置<br>根据当前的地理位置来获取天气情况<br>将得到的文本数据使用语音合成出来</p>
-</blockquote>
-</li>
-<li><p>首先我们来看如何获取地理位置信息</p>
-</li>
+<li>在这里，我们需要提前安装好requests库、pyttsx3库。<br> <code>pip3 install requests</code><br> <code>pip3 install pyttsx3</code></li>
+<li>进入高德开发者平台，注册账号，按照流程创建一个应用（是web服务的api），此时就可以获取到一个<code>key</code>值，这个值在后面会用到，记得保存一下。   </li>
+<li>打开高德的api使用文档，好了，开始撸代码…<h2 id="开始撸代码"><a href="#开始撸代码" class="headerlink" title="开始撸代码"></a>开始撸代码</h2>这里我们有三个任务   </li>
+</ol>
+<ul>
+<li>获取当前地理位置   </li>
+<li>根据当前的地理位置来获取天气情况</li>
+<li>将得到的文本数据使用语音合成出来</li>
+</ul>
+<ol>
+<li>首先我们来看如何获取地理位置信息</li>
 </ol>
 <ul>
 <li><p>这里我们可以使用web服务的api中的IP查询来获取到对应的城市名和城市的adcode编码</p>
