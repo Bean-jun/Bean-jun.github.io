@@ -64,6 +64,98 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python装饰器的简单理解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/01/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/" class="article-date">
+  <time datetime="2020-06-01T07:46:14.000Z" itemprop="datePublished">2020-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/01/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/">Python装饰器的简单理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>&emsp;&emsp;通俗点理解就是锦上添花，关于这块需要参考一些软件开发的设计模式，在这里引入一个小的故事。<br>&emsp;&emsp;公司招了一个人A，某一天，项目组想要给一个接口添加一些时间计算，具体时间计算没有说，但是这个功能要加，A呢就去查看接口中的代码，在代码中添加了一个时间计算，过了两天，项目组要求所有接口全部添加时间计算，此时A则一个个的去每个接口中添加时间计算，以至于天天晚上加班，结果没过多久就被炒鱿鱼了。此时来了B，他先写了个时间计算函数并在每个接口头部添加这个函数名，实现了对应的加时间计算功能。没多久就升职加薪了。<br>&emsp;&emsp;看到这里，不禁会想，为什么呢？？？其实这里涉及到一个软件开发的设计模式-开闭原则（简单说就是功能可以加，代码修改是不允许的），A就明显犯了这个错误，<br>而B则是使用到了我们接下来要说到的装饰器。</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>&emsp;&emsp;在了解装饰器之前，请先了解闭包的相关概念！！以及高阶函数的概念！！<br>这里我们有一个阶乘功能的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def product(value):</span><br><span class="line">    # 实现阶乘功能</span><br><span class="line">    result &#x3D; 1</span><br><span class="line">    while value &gt; 0:</span><br><span class="line">        result *&#x3D; value</span><br><span class="line">        value -&#x3D; 1</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>我们需要添加一个计算运行时间的功能，请记住，不要改动product函数，直接做功能添加，这里使用装饰器处理。首先我们创建一个装饰器： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def count_time(func):</span><br><span class="line">    def call_func(var):</span><br><span class="line">        t1 &#x3D; time.time()</span><br><span class="line">        func(var)</span><br><span class="line">        t2 &#x3D; time.time()</span><br><span class="line">        print(&#39;消耗时间为：&#39;+ str(t2-t1))</span><br><span class="line">    return call_func</span><br></pre></td></tr></table></figure></li>
+<li>对原有函数进行装饰改造 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@count_time</span><br><span class="line">def product(value):</span><br><span class="line">    # 实现阶乘功能</span><br><span class="line">    result &#x3D; 1</span><br><span class="line">    while value &gt; 0:</span><br><span class="line">        result *&#x3D; value</span><br><span class="line">        value -&#x3D; 1</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></li>
+<li>细节理解<br>&emsp;&emsp;在第二步中的@count_time其实就是装饰器的基本使用，我们在使用product(100)时，解释器不会直接去调用product函数，而是实现调用count_time功能，并将返回的call_func返回给product，也就是说此时的product其实是指向call_func的，当执行product（100）时，其实是在向call_func传递参数，实现功能，简单理解可以使用以下两行代码来表示： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">product &#x3D; count_time(product) # 此时的product是指向call_func函数的</span><br><span class="line">product(100) # 相当于执行call_func(100)</span><br></pre></td></tr></table></figure>
+<h2 id="更高一级的操作"><a href="#更高一级的操作" class="headerlink" title="更高一级的操作"></a>更高一级的操作</h2></li>
+<li>原函数需要传递多个参数<br>&emsp;&emsp;这里很好处理，很正常函数传递参数相同，我们在装饰器中最内层函数中需要传递的变量名改为<code>*args, **kwargs</code>，在执行时，将其直接传入即可。</li>
+<li>原函数有返回值<br>&emsp;&emsp;这里我们可以直接使用return将装饰器中最内层的执行函数部分return出去即可，比如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def count_time(func):</span><br><span class="line">    def call_func(var):</span><br><span class="line">        return func(var)</span><br><span class="line">    return call_func</span><br></pre></td></tr></table></figure></li>
+<li>两个装饰器同时装饰同一个函数<br>&emsp;&emsp;先看一下伪代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@装饰器1</span><br><span class="line">@装饰器2</span><br><span class="line">def fun():</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;意思很简单，就是在原来函数基础上加两个新功能，但是关于执行顺序是怎么样的呢？<br>&emsp;&emsp;就不买关子了，装饰器1先执行，但装饰器1最后装饰，其实这里和堆栈很相似，若是方便，可以自己编代码，打断点调试一下就知道了。<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>未完待续…</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/01/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/" data-id="ckaw6zcnf00006ebie44x01oy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python闭包的简要介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2020-06-01T05:23:17.000Z" itemprop="datePublished">2020-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/">闭包的简要介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
+<li>是内层函数对外层函数非全局变量的应用</li>
+<li>闭包会一直存在计算机内存中，不会因为函数执行的结束而释放</li>
+</ul>
+<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p>&emsp;&emsp;这里我们做一个求和函数，但是我们需要做到每次求和后也返回一个平均值及对应个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def make_averager():</span><br><span class="line">    count &#x3D; 0</span><br><span class="line">    total &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def fun(var):</span><br><span class="line">        # nonlocal count, total # 这里不加会报错</span><br><span class="line">        count +&#x3D; 1</span><br><span class="line">        total +&#x3D; var</span><br><span class="line">        print(total)</span><br><span class="line">        print(str(total&#x2F;count) + &#39; , &#39; + str(count))</span><br><span class="line">    return fun</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    # 这里用到了高阶函数的定义，简单说就是可以将函数的返回值存储在变量中使用</span><br><span class="line">    average &#x3D; make_averager()</span><br><span class="line">    average(5)</span><br><span class="line">    average(6)</span><br><span class="line">    average(7)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;很糟糕，这里会有一个报错UnboundLocalError: local variable ‘count’ referenced before assignment，关于这里其实和变量的使用范围有关，在fun函数内部使用关键字nonlocal添加nonlocal count, total即可解决。<br>&emsp;&emsp;nonlocal声明的变量不是局部变量，也不是全局变量，而是外部嵌套函数内的变量。<br>&emsp;&emsp;简单来说就是在修改函数外部的变量，需要使用global；但是在闭包中，修改外层函数中的变量则需要时使用到nonlocal。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/" data-id="ckaw6zco000016ebia2q21oxq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python连接C实现高效编程demo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/31/Python%E8%BF%9E%E6%8E%A5C%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8Bdemo/" class="article-date">
@@ -941,7 +1033,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
     </div>
   </div>
 
@@ -954,6 +1046,14 @@
       <ul>
         
           <li>
+            <a href="/2020/06/01/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/">Python装饰器的简单理解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/">闭包的简要介绍</a>
+          </li>
+        
+          <li>
             <a href="/2020/05/31/Python%E8%BF%9E%E6%8E%A5C%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8Bdemo/">Python连接C实现高效编程demo</a>
           </li>
         
@@ -963,14 +1063,6 @@
         
           <li>
             <a href="/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/">迁移Hexo操作</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/29/%E5%A4%B1%E5%A3%B0%E7%97%9B%E5%93%AD%E4%B9%8B%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4/">失声痛哭之常用Linux命令</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/29/Java/%E5%AD%A6%E4%B9%A0Java%E7%AC%AC%E4%B8%89%E8%AF%BE/">Java/学习Java第三课</a>
           </li>
         
       </ul>
