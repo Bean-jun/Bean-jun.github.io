@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>闭包的简要介绍 | 小豆子的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="闭包 是内层函数对外层函数非全局变量的应用 闭包会一直存在计算机内存中，不会因为函数执行的结束而释放  举例说明&amp;emsp;&amp;emsp;这里我们做一个求和函数，但是我们需要做到每次求和后也返回一个平均值及对应个数 12345678910111213141516171819def make_averager():    count &#x3D; 0    total &#x3D; 0    def">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包的简要介绍">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="小豆子的Blog">
+<meta property="og:description" content="闭包 是内层函数对外层函数非全局变量的应用 闭包会一直存在计算机内存中，不会因为函数执行的结束而释放  举例说明&amp;emsp;&amp;emsp;这里我们做一个求和函数，但是我们需要做到每次求和后也返回一个平均值及对应个数 12345678910111213141516171819def make_averager():    count &#x3D; 0    total &#x3D; 0    def">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-01T05:23:17.000Z">
+<meta property="article:modified_time" content="2020-06-01T07:46:33.260Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小豆子的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小豆子的Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python闭包的简要介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2020-06-01T05:23:17.000Z" itemprop="datePublished">2020-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      闭包的简要介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
+<li>是内层函数对外层函数非全局变量的应用</li>
+<li>闭包会一直存在计算机内存中，不会因为函数执行的结束而释放</li>
+</ul>
+<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p>&emsp;&emsp;这里我们做一个求和函数，但是我们需要做到每次求和后也返回一个平均值及对应个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def make_averager():</span><br><span class="line">    count &#x3D; 0</span><br><span class="line">    total &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def fun(var):</span><br><span class="line">        # nonlocal count, total # 这里不加会报错</span><br><span class="line">        count +&#x3D; 1</span><br><span class="line">        total +&#x3D; var</span><br><span class="line">        print(total)</span><br><span class="line">        print(str(total&#x2F;count) + &#39; , &#39; + str(count))</span><br><span class="line">    return fun</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    # 这里用到了高阶函数的定义，简单说就是可以将函数的返回值存储在变量中使用</span><br><span class="line">    average &#x3D; make_averager()</span><br><span class="line">    average(5)</span><br><span class="line">    average(6)</span><br><span class="line">    average(7)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;很糟糕，这里会有一个报错UnboundLocalError: local variable ‘count’ referenced before assignment，关于这里其实和变量的使用范围有关，在fun函数内部使用关键字nonlocal添加nonlocal count, total即可解决。<br>&emsp;&emsp;nonlocal声明的变量不是局部变量，也不是全局变量，而是外部嵌套函数内的变量。<br>&emsp;&emsp;简单来说就是在修改函数外部的变量，需要使用global；但是在闭包中，修改外层函数中的变量则需要时使用到nonlocal。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/" data-id="ckaw6zco000016ebia2q21oxq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/01/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python装饰器的简单理解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/31/Python%E8%BF%9E%E6%8E%A5C%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8Bdemo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python连接C实现高效编程demo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/01/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/">Python装饰器的简单理解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/01/Python%E9%97%AD%E5%8C%85%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/">闭包的简要介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/31/Python%E8%BF%9E%E6%8E%A5C%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8Bdemo/">Python连接C实现高效编程demo</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/30/%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BEAPI%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%A9%E6%B0%94%E9%97%B9%E9%92%9F/">使用高德地图API创建一个属于自己的天气闹钟</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/%E8%BF%81%E7%A7%BBHexo%E6%93%8D%E4%BD%9C/">迁移Hexo操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
